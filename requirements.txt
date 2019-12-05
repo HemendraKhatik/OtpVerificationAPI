@@ -1,5 +1,4 @@
 flask
-random
 requests
 json
 psycopg2
