@@ -6,17 +6,18 @@ import random
 
 app = Flask(__name__)
 
-@app.route("/otp_varification/<int:receiver_phone_number>",methods=['get'])
-def otp_varification(receiver_phone_number):
-	# generating six digits otp
-	otp = random.randrange(100000,999999)
-	api_key = "QSMJHMHYHX9C6SZDWMY5OIT14M06238F"
-	secret_key = "0ZFVPHPK9QDTQ04U"
-	usetype = "stage"
-	sender_email = "hemendra.khatik010698@gmail.com"
-	otp_message = "FININD verification your otp is "+ str(otp)
-	sendGetRequest(URL, api_key, secret_key, usetype, receiver_phone_number, sender_email, otp_message)
-	return jsonify(otp= otp)
+# This route accept two parameters receiver_phone_number and message 
+@app.route("/otp_varification/<int:receiver_phone_number>/<string:message>",methods=['get'])
+def otp_varification(receiver_phone_number,message):
+  # generating six digits otp
+  otp = random.randrange(100000,999999)
+  api_key = "QSMJHMHYHX9C6SZDWMY5OIT14M06238F"
+  secret_key = "0ZFVPHPK9QDTQ04U"
+  usetype = "stage"
+  sender_email = "hemendra.khatik010698@gmail.com"
+  otp_message = message + " " + str(otp)
+  sendGetRequest(URL, api_key, secret_key, usetype, receiver_phone_number, sender_email, otp_message)
+  return jsonify(otp= otp)
 
 
 URL = 'https://www.way2sms.com/api/v1/sendCampaign'
