@@ -11,7 +11,7 @@ This is an API for OTP verification
 ```
 GET https://api-otp.herokuapp.com/otp_varification/{phone_number}/{custom_message}
 ```
-This API will return the OTP in JSON format and same otp will be sent to the provided phone number as well and this will happend simultaneously. 
+This API will return the OTP in JSON format and the same OTP will be sent to the provided phone number as well and this will happen simultaneously. 
 You can match your OTP with the user entered OTP to verify the user identity.
 
 ## Example
