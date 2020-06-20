@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/otp_varification/<int:receiver_phone_number>/<string:message>",methods=['get'])
 def otp_varification(receiver_phone_number,message):
   # generating six digits otp
-  otp = random.randrange(100000,999999)
+  otp = random.randrange(1000,9999)
   api_key = "QSMJHMHYHX9C6SZDWMY5OIT14M06238F"
   secret_key = "0ZFVPHPK9QDTQ04U"
   usetype = "stage"
